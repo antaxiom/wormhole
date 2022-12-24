@@ -5,5 +5,5 @@ extends Node2D
 func _ready():
 	pass
 
-func _process(delta):
-	V3D.rotation.y += 1 * delta
+#func _process(delta):
+#	V3D.rotation.y += 1 * delta
