@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://d2eyy74kyy356"]
+
+[node name="3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.53218)
+visible = false
+projection = 1
+current = true
+fov = 68.0
+size = 2.0
+near = 0.2
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="."]
+calculate_tangents = false
+flip_faces = true
+outer_radius = 4.3
+sides = 60
+ring_sides = 30
+smooth_faces = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.89116)
+light_color = Color(0, 1, 1, 1)
+omni_range = 11.8071
