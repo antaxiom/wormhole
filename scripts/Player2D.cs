@@ -5,15 +5,18 @@ public partial class Player2D : CharacterBody2D
 {
     private const float Speed = 500;
     private const float World3DSpeedMultiplier = 1f / 10_000f; // 0.3f
-
+    private const float World3DLerpMultiplier = 15f;
+    
     [Export]
     private NodePath _torusPath;
 
     private Node3D _torus;
+    private Vector3 _torusTargetRot;
 
     public override void _Ready()
     {
         _torus = GetNode<Node3D>(_torusPath);
+        _torusTargetRot = _torus.Rotation;
     }
 
     public override void _PhysicsProcess(double delta)
@@ -37,10 +40,15 @@ public partial class Player2D : CharacterBody2D
         MoveAndSlide();
 		
         // Rotate 3D world
-        var rotation = _torus.Rotation;
+        var rotation = _torusTargetRot;
         rotation.y -= velocity.x * World3DSpeedMultiplier;
-        _torus.Rotation = rotation;
+        _torusTargetRot = rotation;
         
         // TODO: Loop around the 2D world in 360 space
+    }
+
+    public override void _Process(double delta)
+    {
+        _torus.Rotation = _torus.Rotation.Lerp(_torusTargetRot, (float)delta * World3DLerpMultiplier);
     }
 }

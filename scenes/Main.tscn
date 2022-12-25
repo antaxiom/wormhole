@@ -35,6 +35,9 @@ current = true
 script = ExtResource("3_vjunu")
 _torusPath = NodePath("../SubViewport/3D")
 
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+current = true
+
 [node name="ViewportSprite" type="Sprite2D" parent="CharacterBody2D"]
 z_index = -1
 texture = SubResource("ViewportTexture_cbniq")
@@ -42,9 +45,6 @@ texture = SubResource("ViewportTexture_cbniq")
 [node name="Line2D" type="Line2D" parent="CharacterBody2D"]
 position = Vector2(0, -1)
 points = PackedVector2Array(-35, 31, -1, -37, 32, 45, -1, 6, -38, 37)
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-current = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("RectangleShape2D_3jqy8")
